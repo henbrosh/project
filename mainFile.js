@@ -36,13 +36,13 @@ module.exports = {
 
 
 async function findOneListingByName(client, nameOfListing){
-    const res = await client.db("sample_airbnb").collection("listingsAndReviews").findOne({name:nameOfListing});
+    const res = await client.db("choredb").collection("Monitoring_from_JS").findOne({name:nameOfListing});
 
     if(res){
         return res;
 
     } else {
-        console.log(`No listing found with the name ${nameOfListing}`);
+       
         return false;
     }
 
@@ -50,12 +50,13 @@ async function findOneListingByName(client, nameOfListing){
 
 
 async function updateListingByName(client, nameOfListing,updatedListing){
-    const res = await client.db("sample_airbnb").collection("listingsAndReviews").updateOne({name:nameOfListing},{$set:updatedListing});
+    const res = await client.db("choredb").collection("Monitoring_from_JS").updateOne({name:nameOfListing},{$set:updatedListing});
     
     
 }
 
-async function createListing(client ,newListng ){const result =  await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListng);console.log(`bew listinh creates with the following id: ${result.insertedId}`);}
+async function createListing(client ,newListng ){const result =  await client.db("choredb").collection("Monitoring_from_JS").insertOne(newListng);
+console.log(`bew listinh creates with the following id: ${result.insertedId}`);}
 async function listDatabases(client){
     const databaseslist = await client.db().admin().listDatabases();
 

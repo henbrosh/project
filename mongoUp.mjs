@@ -1,11 +1,6 @@
 import { main } from "./mainFile.js";
 const i = 21;
 
-const flagIfRininTheMongoDoc = main("find","rig 3");
-if (flagIfRininTheMongoDoc == false){
-  main("find","rig 3");
-}
-
 
 import fetch from "node-fetch";
 import { ConnectionClosedEvent } from "mongodb";
@@ -30,13 +25,12 @@ const hashRateCheck = function () {
     const result = data.worker;
     const flagIfRininTheMongoDoc = await main("find",result);
     if (flagIfRininTheMongoDoc == false){
-      console.log("asdfasdf")
       const flagIfRininTheMongoDoc = await main("create",result);
     }else{
       
+      Stam2(result, data1);
     }
 
-    Stam2(result, data1);
   };
 
    function Stam2(dataTrex, dataPool) {
@@ -74,7 +68,7 @@ const hashRateCheck = function () {
 };  
 
 hashRateCheck();
- setInterval(hashRateCheck, 1000);
+ setInterval(hashRateCheck, 10000);
 
  function sleep(ms) {
   return new Promise((resolve) => {
